@@ -1,3 +1,5 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import viewsets, generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
@@ -32,6 +34,7 @@ class TopicViewSet(viewsets.ModelViewSet):
 
         return super().get_permissions()
 
+
 class LessonCreateView(generics.CreateAPIView):
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsTeacher | IsAdmin)
@@ -41,6 +44,7 @@ class LessonCreateView(generics.CreateAPIView):
         lesson.save()
 
 
+@method_decorator(cache_page(60 * 15), name='dispatch')
 class LessonListView(generics.ListAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
