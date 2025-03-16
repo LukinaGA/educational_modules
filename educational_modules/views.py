@@ -1,6 +1,7 @@
 from rest_framework import viewsets, generics
 
 from educational_modules.models import EducationalModule, Topic, Lesson
+from educational_modules.serializers import EducationalModuleSerializer, TopicSerializer, LessonSerializer
 
 
 class EducationalModuleViewSet(viewsets.ModelViewSet):
@@ -34,6 +35,7 @@ class LessonDetailView(generics.RetrieveAPIView):
 class LessonUpdateView(generics.UpdateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+
 
 class LessonDeleteView(generics.DestroyAPIView):
     queryset = Lesson.objects.all()
