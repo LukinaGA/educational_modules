@@ -1,6 +1,7 @@
 from rest_framework import viewsets, generics
 
 from educational_modules.models import EducationalModule, Topic, Lesson
+from educational_modules.paginators import LessonPagination
 from educational_modules.serializers import EducationalModuleSerializer, TopicSerializer, LessonSerializer
 
 
@@ -25,6 +26,7 @@ class LessonCreateView(generics.CreateAPIView):
 class LessonListView(generics.ListAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
+    pagination_class = LessonPagination
 
 
 class LessonDetailView(generics.RetrieveAPIView):
