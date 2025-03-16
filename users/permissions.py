@@ -1,7 +1,13 @@
 from rest_framework.permissions import BasePermission
 
 
-class IsModerators(BasePermission):
+class IsAdmin(BasePermission):
+    """Проверка, является ли пользователь администратором."""
+    def has_permission(self, request, view):
+        return request.user.groups.filter(name="Admins").exists()
+
+
+class IsModerator(BasePermission):
     """Проверка, является ли пользователь модератором."""
     def has_permission(self, request, view):
         return request.user.groups.filter(name="Moderators").exists()
