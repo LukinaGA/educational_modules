@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from educational_modules.models import Lesson, Topic, EducationalModule
+from educational_modules.models import EducationalModule, Lesson, Topic
 from educational_modules.validators import validate_video_link
 
 

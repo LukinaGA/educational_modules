@@ -2,9 +2,8 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from educational_modules.apps import EducationalModulesConfig
-from educational_modules.views import EducationalModuleViewSet, TopicViewSet, LessonCreateView, LessonListView, \
-    LessonDetailView, LessonUpdateView, LessonDeleteView
-
+from educational_modules.views import (EducationalModuleViewSet, LessonCreateView, LessonDeleteView, LessonDetailView,
+                                       LessonListView, LessonUpdateView, TopicViewSet)
 
 app_name = EducationalModulesConfig.name
 

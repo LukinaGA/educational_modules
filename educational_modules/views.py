@@ -1,12 +1,12 @@
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
-from rest_framework import viewsets, generics
+from rest_framework import generics, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
-from educational_modules.models import EducationalModule, Topic, Lesson
+from educational_modules.models import EducationalModule, Lesson, Topic
 from educational_modules.paginators import LessonPagination
-from educational_modules.serializers import EducationalModuleSerializer, TopicSerializer, LessonSerializer
-from users.permissions import IsAdmin, IsModerator, IsTeacher, IsOwner
+from educational_modules.serializers import EducationalModuleSerializer, LessonSerializer, TopicSerializer
+from users.permissions import IsAdmin, IsModerator, IsOwner, IsTeacher
 
 
 class EducationalModuleViewSet(viewsets.ModelViewSet):
