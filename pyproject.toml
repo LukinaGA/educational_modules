@@ -17,6 +17,9 @@ drf-yasg = "^1.21.10"
 redis = "^5.2.1"
 
 
+[tool.poetry.group.tests.dependencies]
+coverage = "^7.7.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

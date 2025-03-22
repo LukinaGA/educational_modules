@@ -22,7 +22,8 @@ class Topic(models.Model):
     description = models.TextField(verbose_name="Описание темы", help_text="Введите описание темы", null=True,
                                    blank=True)
     educational_module = models.ForeignKey(EducationalModule, on_delete=models.CASCADE, help_text="Выберите модуль",
-                                           verbose_name="Образовательный модуль", related_name="topics")
+                                           verbose_name="Образовательный модуль", related_name="topics", null=True,
+                                           blank=True)
 
     class Meta:
         verbose_name = "Образовательная тема"
@@ -38,7 +39,7 @@ class Lesson(models.Model):
                                    blank=True)
     video_link = models.CharField(max_length=255, verbose_name="Ссылка на урок", help_text="Добавьте ссылку на урок")
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, verbose_name="Тема",
-                              help_text="Выберите образовательную тему", related_name="lessons")
+                              help_text="Выберите образовательную тему", related_name="lessons", null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name="Автор урока",
                               help_text="Выберите автора урока", related_name="lessons", null=True, blank=True)
 
